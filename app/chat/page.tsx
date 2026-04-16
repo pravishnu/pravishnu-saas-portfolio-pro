@@ -13,22 +13,28 @@ export default function ChatPage() {
     });
 
     const data = await res.json();
-    setReply(data.reply || "Error");
+    setReply(data.reply);
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div>
       <h1>AI Chat</h1>
 
-      <input
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Type message"
-      />
+      <div style={{
+        background: "#1e293b",
+        padding: "20px",
+        borderRadius: "10px"
+      }}>
+        <input
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Ask AI..."
+        />
 
-      <button onClick={sendMessage}>Send</button>
+        <button onClick={sendMessage}>Send</button>
 
-      <p>{reply}</p>
+        <p>{reply}</p>
+      </div>
     </div>
   );
 }

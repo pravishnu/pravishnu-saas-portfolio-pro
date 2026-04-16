@@ -1,1 +1,8 @@
-import Link from "next/link"; export default function Home(){ return (<div style={{padding:40}}><h1>SaaS Portfolio 🚀</h1><Link href="/dashboard">Go Dashboard</Link></div>);}
+export default function Home() {
+  return (
+    <div>
+      <h1>SaaS Portfolio Pro 🚀</h1>
+      <p>AI + SaaS + Wellness Platform</p>
+    </div>
+  );
+}
