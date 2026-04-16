@@ -1,1 +1,29 @@
-"use client"; import {useState} from "react"; import Layout from "../components/Layout"; export default function Chat(){ const [msg,setMsg]=useState(""); const [res,setRes]=useState(""); const send=async()=>{ const r=await fetch("/api/chat",{method:"POST",body:JSON.stringify({message:msg})}); const d=await r.json(); setRes(d.reply); }; return (<Layout><h1>AI Chat</h1><input onChange={(e)=>setMsg(e.target.value)}/><button onClick={send}>Send</button><p>{res}</p></Layout>);}
+import OpenAI from "openai";
+
+export async function POST(req: Request) {
+  try {
+    const { message } = await req.json();
+
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+
+    const response = await openai.responses.create({
+      model: "gpt-4.1-mini",
+      input: message,
+    });
+
+    return new Response(
+      JSON.stringify({ reply: response.output_text }),
+      { status: 200 }
+    );
+
+  } catch (error) {
+    console.error(error);
+
+    return new Response(
+      JSON.stringify({ error: "AI failed" }),
+      { status: 500 }
+    );
+  }
+}
