@@ -1,0 +1,1 @@
+import Layout from "../components/Layout"; import Chart from "../components/chart"; export default function Dashboard(){ return (<Layout><h1>Dashboard</h1><Chart/></Layout>);}
