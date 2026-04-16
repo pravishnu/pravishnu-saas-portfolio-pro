@@ -20,20 +20,19 @@ export default function ChatPage() {
     <div>
       <h1>AI Chat</h1>
 
-      <div style={{
-        background: "#1e293b",
-        padding: "20px",
-        borderRadius: "10px"
-      }}>
+      <div className="glass" style={{ padding: "20px", marginTop: "20px" }}>
         <input
+          className="input"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Ask AI..."
         />
 
-        <button onClick={sendMessage}>Send</button>
+        <button className="btn" onClick={sendMessage}>
+          Send
+        </button>
 
-        <p>{reply}</p>
+        <p style={{ marginTop: "20px" }}>{reply}</p>
       </div>
     </div>
   );
