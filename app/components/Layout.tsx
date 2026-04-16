@@ -1,1 +1,24 @@
-"use client"; import Link from "next/link"; export default function Layout({children}:any){ return (<div style={{display:"flex",minHeight:"100vh"}}><div style={{width:200,background:"#111",padding:20}}><h2>🚀 SaaS</h2><p><Link href="/dashboard">Dashboard</Link></p><p><Link href="/chat">AI Chat</Link></p></div><div style={{flex:1,padding:20}}>{children}</div></div>);}
+import "./globals.css";
+import Sidebar from "./components/Sidebar";
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body style={{
+        display: "flex",
+        gap: "20px",
+        padding: "20px"
+      }}>
+        <Sidebar />
+
+        <div style={{
+          flex: 1,
+          padding: "30px",
+          borderRadius: "20px"
+        }}>
+          {children}
+        </div>
+      </body>
+    </html>
+  );
+}

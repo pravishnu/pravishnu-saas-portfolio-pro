@@ -20,7 +20,10 @@ export default function ChatPage() {
     <div>
       <h1>AI Chat</h1>
 
-      <div className="glass" style={{ padding: "20px", marginTop: "20px" }}>
+      <div className="glass" style={{
+        padding: "25px",
+        marginTop: "20px"
+      }}>
         <input
           className="input"
           value={message}
