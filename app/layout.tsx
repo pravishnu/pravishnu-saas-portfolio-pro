@@ -6,9 +6,7 @@ export default function RootLayout({ children }) {
     <html>
       <body style={{ display: "flex" }}>
         <Sidebar />
-        <div style={{ flex: 1, padding: "30px" }}>
-          {children}
-        </div>
+        <div style={{ flex: 1 }}>{children}</div>
       </body>
     </html>
   );
